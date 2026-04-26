@@ -208,8 +208,10 @@ body {
 
 .message-actions {
   display: flex;
+  flex-direction: column;
   gap: 4px;
   margin-top: 4px;
+  align-items: flex-start;
 }
 
 .action-btn {
@@ -231,6 +233,30 @@ body {
 .action-btn.primary {
   border-color: #0078d4;
   color: #0078d4;
+}
+
+.formula-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.formula-btn {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  background: #f0f6ff;
+  border-color: #0078d4;
+  color: #0050a0;
+}
+
+.formula-btn:hover {
+  background: #daeeff;
 }
 
 /* Input Area */
