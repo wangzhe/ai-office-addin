@@ -2,10 +2,11 @@
   "providers": {
     "anthropic": {
       "apiKey": "sk-ant-YOUR_KEY_HERE",
+      "baseUrl": "https://api.ppio.com/anthropic",
       "models": [
-        { "id": "claude-opus-4-7",   "label": "Claude Opus 4.7" },
-        { "id": "claude-sonnet-4-6", "label": "Claude Sonnet 4.6" },
-        { "id": "claude-haiku-4-5",  "label": "Claude Haiku 4.5" }
+        { "id": "pa/claude-opus-4-6",        "label": "Claude Opus 4.6 (PPIO)" },
+        { "id": "pa/claude-sonnet-4-6",      "label": "Claude Sonnet 4.6 (PPIO)" },
+        { "id": "pa/claude-haiku-4-5-20251001", "label": "Claude Haiku 4.5 (PPIO)" }
       ]
     },
     "openai": {
