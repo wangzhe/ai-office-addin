@@ -1,0 +1,35 @@
+{
+  "providers": {
+    "anthropic": {
+      "apiKey": "sk-ant-YOUR_KEY_HERE",
+      "models": [
+        { "id": "claude-opus-4-7",   "label": "Claude Opus 4.7" },
+        { "id": "claude-sonnet-4-6", "label": "Claude Sonnet 4.6" },
+        { "id": "claude-haiku-4-5",  "label": "Claude Haiku 4.5" }
+      ]
+    },
+    "openai": {
+      "apiKey": "sk-YOUR_KEY_HERE",
+      "models": [
+        { "id": "gpt-4o",      "label": "GPT-4o" },
+        { "id": "gpt-4o-mini", "label": "GPT-4o mini" },
+        { "id": "o3-mini",     "label": "o3 mini" }
+      ]
+    },
+    "deepseek": {
+      "apiKey": "sk-YOUR_KEY_HERE",
+      "models": [
+        { "id": "deepseek-chat",     "label": "DeepSeek Chat" },
+        { "id": "deepseek-reasoner", "label": "DeepSeek Reasoner" }
+      ]
+    },
+    "kimi": {
+      "apiKey": "YOUR_KEY_HERE",
+      "models": [
+        { "id": "moonshot-v1-8k",   "label": "Kimi 8K" },
+        { "id": "moonshot-v1-32k",  "label": "Kimi 32K" },
+        { "id": "moonshot-v1-128k", "label": "Kimi 128K" }
+      ]
+    }
+  }
+}
