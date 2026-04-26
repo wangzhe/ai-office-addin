@@ -4,8 +4,10 @@ const SYSTEM_PROMPT =
   "You are an AI assistant embedded in Microsoft Office. Help the user work with their documents. " +
   "When providing content to be inserted into a document, format it clearly and concisely.";
 
-async function streamAnthropic({ model, messages, apiKey, sendChunk }) {
-  const client = new Anthropic.default({ apiKey });
+async function streamAnthropic({ model, messages, apiKey, baseURL, sendChunk }) {
+  const opts = { apiKey };
+  if (baseURL) opts.baseURL = baseURL;
+  const client = new Anthropic.default(opts);
 
   const stream = await client.messages.stream({
     model,

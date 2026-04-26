@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
   };
 
   try {
-    await streamWithProvider({ provider, model, messages: allMessages, apiKey: providerConfig.apiKey, sendChunk });
+    await streamWithProvider({ provider, model, messages: allMessages, apiKey: providerConfig.apiKey, baseURL: providerConfig.baseUrl, sendChunk });
     res.write(`data: ${JSON.stringify({ type: "done" })}\n\n`);
   } catch (err) {
     res.write(`data: ${JSON.stringify({ type: "error", message: err.message })}\n\n`);

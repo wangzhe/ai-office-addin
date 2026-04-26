@@ -10,8 +10,8 @@ const SYSTEM_PROMPT =
   "You are an AI assistant embedded in Microsoft Office. Help the user work with their documents. " +
   "When providing content to be inserted into a document, format it clearly and concisely.";
 
-async function streamOpenAICompat({ provider, model, messages, apiKey, sendChunk }) {
-  const baseURL = BASE_URLS[provider];
+async function streamOpenAICompat({ provider, model, messages, apiKey, baseURL: configBaseURL, sendChunk }) {
+  const baseURL = configBaseURL ?? BASE_URLS[provider];
   const client = new OpenAI.default({ apiKey, ...(baseURL ? { baseURL } : {}) });
 
   const allMessages = [{ role: "system", content: SYSTEM_PROMPT }, ...messages];
