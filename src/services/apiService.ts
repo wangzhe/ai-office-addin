@@ -1,4 +1,4 @@
-const PROXY_URL = "http://localhost:3002";
+const PROXY_URL = "https://localhost:3002";
 
 export interface ModelOption {
   id: string;
@@ -23,18 +23,19 @@ export async function streamChat(params: {
   model: string;
   messages: ChatMessage[];
   context: string | null;
+  hostType: string;
   onChunk: (text: string) => void;
   onDone: () => void;
   onError: (msg: string) => void;
 }): Promise<void> {
-  const { provider, model, messages, context, onChunk, onDone, onError } = params;
+  const { provider, model, messages, context, hostType, onChunk, onDone, onError } = params;
 
   let res: Response;
   try {
     res = await fetch(`${PROXY_URL}/api/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ provider, model, messages, context }),
+      body: JSON.stringify({ provider, model, messages, context, hostType }),
     });
   } catch {
     onError("server_unavailable");

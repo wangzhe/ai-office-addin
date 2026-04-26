@@ -5,7 +5,7 @@ const { streamWithProvider } = require("../providers");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-  const { provider, model, messages, context } = req.body;
+  const { provider, model, messages, context, hostType } = req.body;
   if (!provider || !model || !messages) {
     return res.status(400).json({ error: "Missing provider, model, or messages" });
   }
@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
   };
 
   try {
-    await streamWithProvider({ provider, model, messages: allMessages, apiKey: providerConfig.apiKey, baseURL: providerConfig.baseUrl, sendChunk });
+    await streamWithProvider({ provider, model, messages: allMessages, apiKey: providerConfig.apiKey, baseURL: providerConfig.baseUrl, hostType: hostType || "Office", sendChunk });
     res.write(`data: ${JSON.stringify({ type: "done" })}\n\n`);
   } catch (err) {
     res.write(`data: ${JSON.stringify({ type: "error", message: err.message })}\n\n`);

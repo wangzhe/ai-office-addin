@@ -4,7 +4,7 @@ import ContextBar from "./components/ContextBar";
 import ChatPanel from "./components/ChatPanel";
 import { Message } from "./components/MessageItem";
 import { fetchModels, streamChat, ModelsMap } from "../services/apiService";
-import { getSelectionText } from "../services/officeService";
+import { getSelectionText, getHostType } from "../services/officeService";
 import { t } from "../i18n";
 
 const STORAGE_KEY_PROVIDER = "ai_addin_provider";
@@ -84,6 +84,7 @@ export default function App() {
       model,
       messages: chatHistory,
       context,
+      hostType: getHostType(),
       onChunk: (chunk) => {
         setMessages((prev) =>
           prev.map((m) => (m.id === assistantId ? { ...m, content: m.content + chunk } : m))
